@@ -5,16 +5,17 @@
 using namespace std ;
 int main()
 {
-    //char string[]=  "123+456-789*101112/131415";
-     char delims[]=  "*/+-";
-    string Animals[4] = {"123+456-789*101112/131415", "Fox", "Lion", "Tiger"};
-    string  * answer = StringFunctions::returnStringArray(Animals[0],Animals[0]);
+
+
+   string * arrayStart = StringFunctions::splitString("1111+2-34*56/78","+-*/");
+
+   for(int i = 0; i <sizeof(arrayStart)+1; i++)
+   {
+       cout<<  arrayStart[i]<< "\n";
+
+   }
    
   
-
-    StringFunctions::display(answer);
- 
-  return 0;
 
 
 }

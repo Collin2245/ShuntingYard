@@ -1,4 +1,5 @@
 #include <string>
+#include "LinkedList.hpp"
 
 
 class StringFunctions
@@ -8,7 +9,7 @@ class StringFunctions
      
 
     public:
-        static std::string * returnStringArray(std::string fullString,std::string delims);
-        static void display(std::string * input);
+        static string * splitString(string s, string delims);
+        static char * stringToCharArray(string s);
        
 };
