@@ -1,15 +1,18 @@
 #include <string>
-#include "LinkedList.hpp"
+#include "Queue.hpp"
 
 
 class StringFunctions
 {
     private:
+        static bool isInString(string searchString, char charToFind);
 
      
 
     public:
-        static string * splitString(string s, string delims);
+        static Queue * splitString(string s, string delims);
         static char * stringToCharArray(string s);
+
+
        
 };

@@ -1,3 +1,5 @@
+#ifndef Node_hpp
+#define Node_hpp
 #include <string.h>
 #include <iostream>
 using namespace std;
@@ -17,3 +19,5 @@ class Node
         
 
 };
+
+#endif Node_hpp

@@ -1,17 +1,15 @@
 #include "StringFunctions.hpp"
 using namespace std;
 
-string * StringFunctions::splitString(string s, string delims)
+Queue * StringFunctions::splitString(string s, string delims)
 {
-    LinkedList * ll = new LinkedList();
+    Queue * q = new Queue();
     char* fullChar = StringFunctions::stringToCharArray(s);
     char *fullChar2 = StringFunctions::stringToCharArray(s);
     char* delimsChar = StringFunctions::stringToCharArray(delims);
     char * tokenizer;
     char * delimTokens;
-    std::cout<<delimsChar[0];
     string firstTester = string(1,fullChar[0]);
-    std::cout<< firstTester;
     bool toggle = false;
     std::size_t found = firstTester.find_first_of(delims);
 
@@ -30,39 +28,34 @@ string * StringFunctions::splitString(string s, string delims)
             if(toggle == true)
             {
                 string thingToAdd =  string(1,delimTokens[0]);
-                ll->addEnd(thingToAdd);
+                q->Enqueue(thingToAdd);
                 delimTokens = strpbrk (delimTokens+1 , delimsChar);
-                ll->addEnd(tokenizer);
+                q->Enqueue(tokenizer);
                 tokenizer = strtok (NULL, delimsChar);
             }
             else
             {
                 string thingToAdd =  string(1,delimTokens[0]);
-                ll->addEnd(tokenizer);
+                q->Enqueue(tokenizer);
                 tokenizer = strtok (NULL, delimsChar);
-                ll->addEnd(thingToAdd);
+                q->Enqueue(thingToAdd);
                 delimTokens = strpbrk (delimTokens+1 , delimsChar);
             }
         }
         else if (tokenizer!=0)
         {
-            ll->addEnd(tokenizer);
+            q->Enqueue(tokenizer);
             tokenizer = strtok (NULL, delimsChar);
         }
         else if (delimTokens != 0)
         {
             string thingToAdd =  string(1,delimTokens[0]);
-            ll->addEnd(thingToAdd);
+            q->Enqueue(thingToAdd);
             delimTokens = strpbrk (delimTokens+1 , delimsChar);
         }
     }
-       std::cout<<"\n"<<"\n";
-       //ll->display();
-       std::cout<<"\n"<<"\n";
-       int c = ll->count;
-       string * arrayStart =  ll->toStringArray();
-       
-       return arrayStart;
+    
+       return q;
 }
 
 char * StringFunctions::stringToCharArray(string s)
@@ -76,3 +69,16 @@ char * StringFunctions::stringToCharArray(string s)
 
     return  cstr;
 }
+
+bool StringFunctions::isInString(string searchString, char charToFind)
+{
+    for(int i = 0; i <searchString.length(); i++)
+    {
+        if(searchString[i] == charToFind)
+        {
+            return 1;
+        }
+    }
+}
+
+
