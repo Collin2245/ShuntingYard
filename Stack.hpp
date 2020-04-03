@@ -1,3 +1,4 @@
+#ifndef Stack_hpp
 #define Stack_hpp
 
 #include "Node.hpp"
@@ -16,4 +17,4 @@ class Stack
         void display();
         
 };
-
+#endif

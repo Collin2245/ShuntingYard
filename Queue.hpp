@@ -1,3 +1,6 @@
+#ifndef Queue_hpp
+#define Queue_hpp
+
 #include "Node.hpp"
 using namespace std;
 
@@ -10,9 +13,14 @@ class Queue
         string Dequeue();
         int count;
         void display();
+        Node * peek();
+        void fancyDisplay();
 
 
     private:
         Node * head;
+        
 
 };
+
+#endif
